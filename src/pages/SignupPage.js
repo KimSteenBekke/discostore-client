@@ -33,7 +33,7 @@ function SignupPage(props) {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, name };
+    const requestBody = { name, password, email, street, streetNumber, city, zipCode, country };
 
     // Make an axios request to the API
     // If POST request is successful redirect to login page

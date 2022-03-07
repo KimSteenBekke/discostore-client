@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import AlbumListPage from "./pages/AlbumListPage";
+import SignupPage from "./pages/SignupPage";
 
 
 
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/albums" element={<AlbumListPage />} />
-        
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </div>
   );

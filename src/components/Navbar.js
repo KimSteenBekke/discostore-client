@@ -7,8 +7,8 @@ function Navbar() {
         <button>Home</button>
       </Link>
 
-      <Link to="/projects">
-        <button>Projects</button>
+      <Link to="/albums">
+        <button>Albums</button>
       </Link>
     </nav>
   );

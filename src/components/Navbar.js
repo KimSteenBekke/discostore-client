@@ -10,6 +10,10 @@ function Navbar() {
       <Link to="/albums">
         <button>Albums</button>
       </Link>
+
+      <Link to="/signup">
+        <button>Signup</button>
+      </Link>
     </nav>
   );
 }

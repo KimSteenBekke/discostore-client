@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import AlbumListPage from "./pages/AlbumListPage";
 import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
 
 
 
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/albums" element={<AlbumListPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </div>
   );

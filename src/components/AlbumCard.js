@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import AddOrder from "./AddOrder";
+import { useContext } from 'react';
+import { AuthContext } from "../context/auth.context";
+
+
 
 function AlbumCard({ title, artist, genre, price, imageURL, _id }) {
+const {user, isLoggedIn} = useContext(AuthContext);
 
-   console.log(AlbumCard);
+
   return (
     <div className="AlbumCard">
+
       <Link to={`/albums/${_id}`}>
         <h3>{title}</h3>
         <h3>{artist}</h3>

@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";                     // <== IMPORT 
-import { AuthContext } from "../context/auth.context";  // <== IMPORT
+import { Link } from 'react-router-dom'
+import { useContext } from 'react' // <== IMPORT
+import { AuthContext } from '../context/auth.context' // <== IMPORT
 
 function Navbar() {
-   const { isLoggedIn, user } = useContext(AuthContext);
+  //const { isLoggedIn, user } = useContext(AuthContext)
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
   return (
     <nav>
       <Link to="/">
@@ -16,24 +17,26 @@ function Navbar() {
 
       {isLoggedIn && (
         <>
-          <button>Logout</button>
+        <button onClick={logOutUser}>Logout</button>
+          <span>{user && user.name}</span>  
         </>
       )}
 
       {!isLoggedIn && (
         <>
           <Link to="/signup">
-            {" "}
-            <button>Sign Up</button>{" "}
+            {' '}
+            <button>Sign Up</button>{' '}
           </Link>
+
           <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
+            {' '}
+            <button>Login</button>{' '}
           </Link>
         </>
       )}
     </nav>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

@@ -4,7 +4,7 @@ import axios from "axios";
 import AddTask from "../components/AddTask";
 import TaskCard from "../components/TaskCard";
 
-const API_URL = "https://discostore-client.netlify.app/";
+const API_URL = "https://discostore-server.herokuapp.com";
 
 function ProjectDetailsPage(props) {
   const [project, setProject] = useState(null);

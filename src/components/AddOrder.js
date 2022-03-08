@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "https://discostore-client.netlify.app/";
+const API_URL = "https://discostore-server.herokuapp.com";
 
 function AddOrder(props) {
   const [username, setUsername] = useState("");

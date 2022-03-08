@@ -1,32 +1,31 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-import AlbumCard from "./../components/AlbumCard";
+import AlbumCard from './../components/AlbumCard'
 
-const API_URL = "https://discostore-client.netlify.app";
+const API_URL = 'https://discostore-server.herokuapp.com'
 
 function AlbumListPage() {
-  const [albums, setAlbums] = useState([]);
+  const [albums, setAlbums] = useState([])
 
   const getAllAlbums = () => {
     axios
       .get(`${API_URL}/api/albums`)
       .then((response) => setAlbums(response.data))
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
 
   useEffect(() => {
-    getAllAlbums();
-  }, []);
+    getAllAlbums()
+  }, [])
 
   return (
     <div className="AlbumListPage">
-      
       {albums.map((album) => (
         <AlbumCard key={album._id} {...album} />
       ))}
     </div>
-  );
+  )
 }
 
-export default AlbumListPage;
+export default AlbumListPage

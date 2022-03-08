@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "https://discostore-client.netlify.app/";
+const API_URL = "https://discostore-server.herokuapp.com";
 
 function SignupPage(props) {
   const [email, setEmail] = useState("");

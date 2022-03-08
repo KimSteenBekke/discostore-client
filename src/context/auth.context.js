@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = "https://discostore-client.netlify.app/";
+const API_URL = "https://discostore-server.herokuapp.com";
 
 const AuthContext = React.createContext();
 

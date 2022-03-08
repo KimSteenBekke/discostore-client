@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 const API_URL = "http://localhost:5005";
 
 const AuthContext = React.createContext();
@@ -49,7 +50,7 @@ function AuthProviderWrapper(props) {
   }
  
   const removeToken = () => {
-    // Upon logout, remove the token from the localStorage
+        // Upon logout, remove the token from the localStorage
     localStorage.removeItem("authToken");
   };
 

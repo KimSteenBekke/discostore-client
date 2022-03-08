@@ -3,7 +3,7 @@ import axios from "axios";
 
 import AlbumCard from "./../components/AlbumCard";
 
-const API_URL = "https://discostore-client.netlify.app/";
+const API_URL = "https://discostore-client.netlify.app";
 
 function AlbumListPage() {
   const [albums, setAlbums] = useState([]);

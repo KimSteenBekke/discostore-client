@@ -18,9 +18,9 @@ function AlbumCard({ title, artist, genre, price, imageURL, _id }) {
       <img src={imageURL} alt="album cover" />
 
       {isLoggedIn && (
-        <>
-        <button onClick={AddOrder(title, artist, genre, price, imageURL, _id )}>Buy</button>
-        </>
+        <Link to="/order">
+        <button>Buy</button>
+        </Link>
       )}
     </div>
   )

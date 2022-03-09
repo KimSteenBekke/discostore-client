@@ -19,7 +19,7 @@ function AlbumCard({ title, artist, genre, price, imageURL, _id }) {
 
       {isLoggedIn && (
         <>
-        <button onClick={AddOrder}>Buy</button>
+        <button onClick={AddOrder(title, artist, genre, price, imageURL, _id )}>Buy</button>
         </>
       )}
     </div>

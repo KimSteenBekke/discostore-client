@@ -1,46 +1,62 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
-const API_URL = "https://discostore-server.herokuapp.com";
+const API_URL = 'https://discostore-server.herokuapp.com'
 
 function AddOrder(props) {
-  const [username, setUsername] = useState("");
-  const [street, setStreet] = useState("");
-  const [streetNumber, setStreetNumber] = useState("");
-  const [city, setCity] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [country, setCountry] = useState("");
-  const [albumId, setAlbumId] = useState("");
-  const [quantity, setQuantity] = useState("");
-
+  const [username, setUsername] = useState('')
+  const [street, setStreet] = useState('')
+  const [streetNumber, setStreetNumber] = useState('')
+  const [city, setCity] = useState('')
+  const [zipCode, setZipCode] = useState('')
+  const [country, setCountry] = useState('')
+  const { albumId } = useParams()
+  const [quantity, setQuantity] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // We need the project id when creating the new task
-    const { albumId } = props;
+
     // Create an object representing the body of the POST request
-    const requestBody = { username, street, streetNumber, city, zipCode, country, albumId, quantity };
+    const requestBody = {
+      username,
+      street,
+      streetNumber,
+      city,
+      zipCode,
+      country,
+      albumId,
+      quantity,
+    }
+
+    const storedToken = localStorage.getItem('authToken')
 
     axios
-      .post(`${API_URL}/api/orders`, requestBody)
+      .post(`${API_URL}/api/orders`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         // Reset the state to clear the inputs
-       setUsername("");
-       setStreet("");
-       setStreetNumber("");
-       setCity("");
-       setZipCode("");
-       setCountry("");
-       setAlbumId("");
-       setQuantity("");
+        setUsername('')
+        setStreet('')
+        setStreetNumber('')
+        setCity('')
+        setZipCode('')
+        setCountry('')
+        setQuantity('')
 
         // Invoke the callback function coming through the props
         // from the ProjectDetailsPage, to refresh the project details
-        props.refreshOrder();
+        props.refreshOrder()
       })
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
+
+  console.log('props: ')
+  console.log('userdetails: ', username, street, streetNumber)
+  console.log('album ID: ', albumId, useParams())
 
   return (
     <div className="AddOrder">
@@ -99,14 +115,14 @@ function AddOrder(props) {
         <textarea
           type="number"
           name="quantity"
-          value={quantity}
+          value={1}
           onChange={(e) => setQuantity(e.target.value)}
         />
 
         <button type="submit">Add Order</button>
       </form>
     </div>
-  );
+  )
 }
 
-export default AddOrder;
+export default AddOrder

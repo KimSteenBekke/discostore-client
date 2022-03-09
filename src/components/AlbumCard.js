@@ -18,9 +18,9 @@ function AlbumCard({ title, artist, genre, price, imageURL, _id }) {
       <img src={imageURL} alt="album cover" />
 
       {isLoggedIn && (
-        <Link to={`/albums/${_id}`}>
-          <button type="submit">Add Order</button>
-        </Link>
+        <>
+        <button onClick={AddOrder}>Buy</button>
+        </>
       )}
     </div>
   )

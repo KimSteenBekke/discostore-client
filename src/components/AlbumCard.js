@@ -6,6 +6,9 @@ import { AuthContext } from '../context/auth.context'
 function AlbumCard({ title, artist, genre, price, imageURL, _id }) {
   const { user, isLoggedIn } = useContext(AuthContext)
 
+  console.log('album data: ', title, artist, genre, price);
+  console.log('user data: ', user);
+
   return (
     <div className="AlbumCard">
       <h3>{title}</h3>

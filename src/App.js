@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/albums" element={<AlbumListPage />} />
         <Route path="/signup" element={<IsAnon><SignupPage /> </IsAnon>} />
         <Route path="/login" element={<IsAnon><LoginPage /> </IsAnon>} />
-        <Route path="/order" element={<IsPrivate><AddOrder /> </IsPrivate>} />
+        <Route path="/order/:albumId" element={<IsPrivate><AddOrder /> </IsPrivate>} />
       </Routes>
     </div>
   );

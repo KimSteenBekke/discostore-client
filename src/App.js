@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import MyNavbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import AlbumListPage from "./pages/AlbumListPage";
 import SignupPage from "./pages/SignupPage";
@@ -14,7 +14,7 @@ import AddOrder from './components/AddOrder'
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <MyNavbar />
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 //import AddOrder from './AddOrder'
 import { useContext } from 'react'
 import { AuthContext } from '../context/auth.context'
+import { Card } from 'react-bootstrap'
 
 function AlbumCard({ title, artist, genre, price, imageURL, _id }) {
   const { user, isLoggedIn } = useContext(AuthContext)
@@ -10,6 +11,7 @@ function AlbumCard({ title, artist, genre, price, imageURL, _id }) {
   console.log('user data: ', user);
 
   return (
+    <Card style={{ width: '18rem' }}>
     <div className="AlbumCard">
       <h3>{title}</h3>
       <h3>{artist}</h3>
@@ -23,6 +25,7 @@ function AlbumCard({ title, artist, genre, price, imageURL, _id }) {
         </Link>
       )}
     </div>
+    </Card>
   )
 }
 

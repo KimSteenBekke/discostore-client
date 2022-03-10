@@ -1,42 +1,50 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react' // <== IMPORT
-import { AuthContext } from '../context/auth.context' // <== IMPORT
+import { useContext } from 'react'
+import { AuthContext } from '../context/auth.context'
+import { Navbar, Nav, Container } from 'react-bootstrap'
 
-function Navbar() {
-  //const { isLoggedIn, user } = useContext(AuthContext)
+function MyNavbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
   return (
-    <nav>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
+    <Navbar bg="primary" expand="lg">
+      <Container>
+        <Navbar.Collapse>
+          <Nav>
+            <Link className="my-nav-link" to="/">
+              Home
+            </Link>
 
-      <Link to="/albums">
-        <button>Albums</button>
-      </Link>
+            <Link className="my-nav-link" to="/albums">
+              Albums
+            </Link>
 
-      {isLoggedIn && (
-        <>
-        <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>  
-        </>
-      )}
+            {isLoggedIn && (
+              <>
+                <button className="my-log-out" onClick={logOutUser}>
+                  Logout
+                </button>
+                <span className="my-nav-link">{user && user.name}</span>
+              </>
+            )}
 
-      {!isLoggedIn && (
-        <>
-          <Link to="/signup">
-            {' '}
-            <button>Sign Up</button>{' '}
-          </Link>
+            {!isLoggedIn && (
+              <>
+                <Link className="my-nav-link" to="/signup">
+                  {' '}
+                  Sign Up{' '}
+                </Link>
 
-          <Link to="/login">
-            {' '}
-            <button>Login</button>{' '}
-          </Link>
-        </>
-      )}
-    </nav>
+                <Link className="my-nav-link" to="/login">
+                  {' '}
+                  Login{' '}
+                </Link>
+              </>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
 
-export default Navbar
+export default MyNavbar

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { Form } from 'react-bootstrap'
 
 const API_URL = 'https://discostore-server.herokuapp.com'
 
@@ -63,61 +64,83 @@ function AddOrder(props) {
       <h3>Add New Order</h3>
 
       <form onSubmit={handleSubmit}>
-        <label>username:</label>
+        <label>Name:</label>
+        <br></br>
         <input
           type="text"
           name="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <br></br>
+        <br></br>
+        
 
-        <label>street:</label>
+        <label>Street:</label>
+        <br></br>
         <textarea
           type="text"
           name="street"
           value={street}
           onChange={(e) => setStreet(e.target.value)}
         />
+        <br></br>
+        <br></br>
 
-        <label>streetNumber:</label>
+        <label>Street Number:</label>
+        <br></br>
         <textarea
           type="text"
           name="streetNumber"
           value={streetNumber}
           onChange={(e) => setStreetNumber(e.target.value)}
         />
+        <br></br>
+        <br></br>
 
-        <label>city:</label>
+        <label>City:</label>
+        <br></br>
         <textarea
           type="text"
           name="city"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
+        <br></br>
+        <br></br>
 
-        <label>zipCode:</label>
+        <label>Zip Code:</label>
+        <br></br>
         <textarea
           type="text"
           name="zipCode"
           value={zipCode}
           onChange={(e) => setZipCode(e.target.value)}
         />
+        <br></br>
+        <br></br>
 
-        <label>country:</label>
+        <label>Country:</label>
+        <br></br>
         <textarea
           type="text"
           name="country"
           value={country}
           onChange={(e) => setCountry(e.target.value)}
         />
+        <br></br>
+        <br></br>
 
         <label>quantity:</label>
+        <br></br>
         <textarea
           type="number"
           name="quantity"
           value={1}
           onChange={(e) => setQuantity(e.target.value)}
         />
+        <br></br>
+        <br></br>
 
         <button type="submit">Add Order</button>
       </form>

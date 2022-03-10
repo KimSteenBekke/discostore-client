@@ -11,7 +11,6 @@ function EditOrderPage(props) {
   const [city, setCity] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [country, setCountry] = useState("");
-  
 
   const { orderId } = useParams();
   const navigate = useNavigate();
@@ -33,25 +32,34 @@ function EditOrderPage(props) {
         setCity(oneOrder.city);
         setZipCode(oneOrder.zipCode);
         setCountry(oneOrder.country);
-        
       })
       .catch((error) => console.log(error));
   }, [orderId]);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e) => {    
     e.preventDefault();
-    const requestBody = { username, street, streetNumber, city, zipCode, country };
-
+    const requestBody = {
+      username,
+      street,
+      streetNumber,
+      city,
+      zipCode,
+      country,
+    };
+    const storedToken = localStorage.getItem("authToken");
     axios
-      .put(`${API_URL}/api/orders/${orderId}`, requestBody)
+      .put(`${API_URL}/api/orders/${orderId}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
       .then((response) => {
         navigate(`/orders/${orderId}`);
       });
   };
-
+  
   const deleteOrder = () => {
+    const storedToken = localStorage.getItem("authToken");
     axios
-      .delete(`${API_URL}/api/orders/${orderId}`)
+      .delete(`${API_URL}/api/orders/${orderId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` }
+      })
       .then(() => {
         navigate("/orders");
       })

@@ -5,13 +5,11 @@ import HomePage from "./pages/HomePage";
 import AlbumListPage from "./pages/AlbumListPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import IsPrivate from "./components/IsPrivate"; 
-import IsAnon from "./components/IsAnon";  
-import AddOrder from './components/AddOrder'
+import IsPrivate from "./components/IsPrivate";
+import IsAnon from "./components/IsAnon";
+import AddOrder from "./components/AddOrder";
 import OrderListPage from "./pages/OrderListPage";
-import EditOrderPage from "./pages/OrderListPage";
-
-
+import EditOrderPage from "./pages/EditOrderPage";
 
 function App() {
   return (
@@ -37,11 +35,10 @@ function App() {
               <LoginPage />{" "}
             </IsAnon>
           }
-        />      
-          
-        
+        />
+
         <Route exact path="/albums" element={<AlbumListPage />} />
-        
+
         <Route
           exact
           path="orders"
@@ -51,14 +48,15 @@ function App() {
             </IsPrivate>
           }
         />
-        
+
         <Route
           path="/order/:orderId"
           element={
             <IsPrivate>
               <EditOrderPage />{" "}
-            </IsPrivate>}
-            />
+            </IsPrivate>
+          }
+        />
       </Routes>
     </div>
   );

@@ -48,6 +48,14 @@ function App() {
             </IsPrivate>
           }
         />
+        <Route
+          path="/order/:albumId"
+          element={
+            <IsPrivate>
+              <AddOrder />{" "}
+            </IsPrivate>
+          }
+          />
 
         <Route
           path="/order/:orderId"

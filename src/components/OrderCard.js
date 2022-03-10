@@ -13,18 +13,6 @@ function OrderCard({
 }) {
   const { user, isLoggedIn } = useContext(AuthContext);
 
-  console.log(
-    "order data: ",
-    username,
-    street,
-    streetNumber,
-    city,
-    zipCode,
-    country,
-    _id
-  );
-  console.log("user data: ", user);
-
   return (
     <div className="OrderCard">
       <h2>Order number: {_id}</h2>

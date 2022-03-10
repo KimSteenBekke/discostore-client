@@ -15,7 +15,6 @@ function OrderListPage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        console.log(response.data);
         setOrders(response.data);
       })
       .catch((error) => console.log(error));

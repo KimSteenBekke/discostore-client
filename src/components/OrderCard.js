@@ -20,13 +20,14 @@ function OrderCard({
     streetNumber,
     city,
     zipCode,
-    country
+    country,
+    _id
   );
   console.log("user data: ", user);
 
   return (
     <div className="OrderCard">
-      <h2>Order: {_id}</h2>
+      <h2>Order number: {_id}</h2>
       <h3>Name: {username}</h3>
       <h3>Street: {street}</h3>
       <h3>Street Number: {streetNumber}</h3>

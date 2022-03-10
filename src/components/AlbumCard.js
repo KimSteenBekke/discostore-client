@@ -7,9 +7,6 @@ import { Card, Button } from 'react-bootstrap'
 function AlbumCard({ title, artist, genre, price, imageURL, _id }) {
   const { user, isLoggedIn } = useContext(AuthContext)
 
-  console.log('album data: ', title, artist, genre, price)
-  console.log('user data: ', user)
-
   return (
     <>
       <Card style={{ width: '35rem' }}>

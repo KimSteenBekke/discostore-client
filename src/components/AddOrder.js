@@ -54,11 +54,6 @@ function AddOrder(props) {
       })
       .catch((error) => console.log(error))
   }
-
-  console.log('props: ')
-  console.log('userdetails: ', username, street, streetNumber)
-  console.log('album ID: ', albumId, useParams())
-
   return (
     <div className="AddOrder">
       <h3>Add New Order</h3>

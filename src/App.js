@@ -58,7 +58,7 @@ function App() {
           />
 
         <Route
-          path="/order/:orderId"
+          path="/order/x/:orderId"
           element={
             <IsPrivate>
               <EditOrderPage />{" "}

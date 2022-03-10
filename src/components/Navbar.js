@@ -18,6 +18,13 @@ function MyNavbar() {
               Albums
             </Link>
 
+            {isLoggedIn && (
+              <>
+                <Link className="my-nav-link" to="/orders">
+                  Orders
+                </Link>
+              </>
+            )}
 
             {isLoggedIn && (
               <>
@@ -41,23 +48,12 @@ function MyNavbar() {
                 </Link>
               </>
             )}
-          {isLoggedIn && (
-        <>
-          <Link to="/orders">
-            {" "}
-            <button>Orders</button>{" "}
-          </Link>
-          
-          <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>
-        </>
-      )}
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   )
-
 }
 
 export default MyNavbar

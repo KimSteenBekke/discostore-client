@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate"; 
 import IsAnon from "./components/IsAnon";  
 import AddOrder from './components/AddOrder'
+import OrderListPage from "./pages/OrderListPage";
 
 
 
@@ -22,6 +23,8 @@ function App() {
         <Route path="/signup" element={<IsAnon><SignupPage /> </IsAnon>} />
         <Route path="/login" element={<IsAnon><LoginPage /> </IsAnon>} />
         <Route path="/order/:albumId" element={<IsPrivate><AddOrder /> </IsPrivate>} />
+        <Route exact path="/albums" element={<AlbumListPage />} />
+        <Route exact path="orders" element={<IsPrivate><OrderListPage /> </IsPrivate> } />
       </Routes>
     </div>
   );

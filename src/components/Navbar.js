@@ -18,6 +18,7 @@ function MyNavbar() {
               Albums
             </Link>
 
+
             {isLoggedIn && (
               <>
                 <button className="my-log-out" onClick={logOutUser}>
@@ -40,11 +41,23 @@ function MyNavbar() {
                 </Link>
               </>
             )}
+          {isLoggedIn && (
+        <>
+          <Link to="/orders">
+            {" "}
+            <button>Orders</button>{" "}
+          </Link>
+          
+          <button onClick={logOutUser}>Logout</button>
+          <span>{user && user.name}</span>
+        </>
+      )}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   )
+
 }
 
 export default MyNavbar

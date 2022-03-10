@@ -11,13 +11,20 @@ function EditOrderPage(props) {
   const [city, setCity] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [country, setCountry] = useState("");
+  
 
   const { orderId } = useParams();
   const navigate = useNavigate();
 
+  const storedToken = localStorage.getItem("authToken");
+
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/orders/${orderId}`)
+      .get(
+        `${API_URL}/api/orders/${
+          (orderId, { headers: { Authorization: `Bearer ${storedToken}` } })
+        }`
+      )
       .then((response) => {
         const oneOrder = response.data;
         setUsername(oneOrder.username);
@@ -26,6 +33,7 @@ function EditOrderPage(props) {
         setCity(oneOrder.city);
         setZipCode(oneOrder.zipCode);
         setCountry(oneOrder.country);
+        
       })
       .catch((error) => console.log(error));
   }, [orderId]);

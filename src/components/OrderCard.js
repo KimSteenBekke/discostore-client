@@ -1,9 +1,17 @@
-import { Link } from 'react-router-dom'
-import { useContext } from 'react'
-import { AuthContext } from '../context/auth.context'
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
-function OrderCard({ username, street, streetNumber, city, zipCode, country }) {
-  const { user, isLoggedIn } = useContext(AuthContext)
+function OrderCard({
+  username,
+  street,
+  streetNumber,
+  city,
+  zipCode,
+  country,
+  _id,
+}) {
+  const { user, isLoggedIn } = useContext(AuthContext);
 
   console.log(
     "order data: ",
@@ -14,20 +22,24 @@ function OrderCard({ username, street, streetNumber, city, zipCode, country }) {
     zipCode,
     country
   );
-  console.log('user data: ', 
-  user)
-  ;
+  console.log("user data: ", user);
 
   return (
     <div className="OrderCard">
-      <h3>{username}</h3>
-      <h3>{street}</h3>
-      <h3>{streetNumber}</h3>
-      <h3>{city}</h3>
-      <h3>{zipCode}</h3>
-      <h3>{country}</h3>    
+      <h2>Order: {_id}</h2>
+      <h3>Name: {username}</h3>
+      <h3>Street: {street}</h3>
+      <h3>Street Number: {streetNumber}</h3>
+      <h3>City: {city}</h3>
+      <h3>ZIP Code: {zipCode}</h3>
+      <h3>Country: {country}</h3>
+      {isLoggedIn && (
+        <Link to={`/order/${_id}`}>
+          <button>Edit Order</button>
+        </Link>
+      )}
     </div>
   );
 }
 
-export default OrderCard
+export default OrderCard;

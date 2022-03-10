@@ -17,26 +17,31 @@ function Navbar() {
 
       {isLoggedIn && (
         <>
-        <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>  
+          <Link to="/orders">
+            {" "}
+            <button>Orders</button>{" "}
+          </Link>
+          
+          <button onClick={logOutUser}>Logout</button>
+          <span>{user && user.name}</span>
         </>
       )}
 
       {!isLoggedIn && (
         <>
           <Link to="/signup">
-            {' '}
-            <button>Sign Up</button>{' '}
+            {" "}
+            <button>Sign Up</button>{" "}
           </Link>
 
           <Link to="/login">
-            {' '}
-            <button>Login</button>{' '}
+            {" "}
+            <button>Login</button>{" "}
           </Link>
         </>
       )}
     </nav>
-  )
+  );
 }
 
 export default Navbar

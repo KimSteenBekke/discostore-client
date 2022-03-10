@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../context/auth.context'
 
-function OrderCard({ username, street, streetNumber, city, zipCode, country }) {
+function OrderCard({ username, street, streetNumber, city, zipCode, country, _Id }) {
   const { user, isLoggedIn } = useContext(AuthContext)
 
   console.log(
@@ -13,6 +13,9 @@ function OrderCard({ username, street, streetNumber, city, zipCode, country }) {
     city,
     zipCode,
     country
+
+
+    
     
   );
   console.log('user data: ', 
@@ -28,6 +31,11 @@ function OrderCard({ username, street, streetNumber, city, zipCode, country }) {
       <h3>City: {city}</h3>
       <h3>ZIP Code: {zipCode}</h3>
       <h3>Country: {country}</h3>
+      {isLoggedIn && (
+        <Link to={`/order/${_Id}`}>
+          <button>Edit Order</button>
+        </Link>)}
+      
     </div>
   );
 }

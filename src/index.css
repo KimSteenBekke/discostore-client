@@ -106,3 +106,14 @@ textarea {
 .TaskCard {
   background-color: #dfeef9;
 }
+
+.my-nav-link {
+  color: white;
+  padding: 10px;
+}
+
+.my-log-out {
+  color: blue;
+  padding: 10px;
+  margin: 0px 0px 0px 20px;
+}

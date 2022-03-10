@@ -13,6 +13,7 @@ function OrderCard({ username, street, streetNumber, city, zipCode, country }) {
     city,
     zipCode,
     country
+    
   );
   console.log('user data: ', 
   user)
@@ -20,12 +21,13 @@ function OrderCard({ username, street, streetNumber, city, zipCode, country }) {
 
   return (
     <div className="OrderCard">
-      <h3>{username}</h3>
-      <h3>{street}</h3>
-      <h3>{streetNumber}</h3>
-      <h3>{city}</h3>
-      <h3>{zipCode}</h3>
-      <h3>{country}</h3>    
+      <h2>Order: {}</h2>
+      <h3>Name: {username}</h3>
+      <h3>Street: {street}</h3>
+      <h3>Street Number: {streetNumber}</h3>
+      <h3>City: {city}</h3>
+      <h3>ZIP Code: {zipCode}</h3>
+      <h3>Country: {country}</h3>
     </div>
   );
 }

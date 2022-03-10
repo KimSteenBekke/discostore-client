@@ -35,7 +35,7 @@ function OrderCard({
       <h3>ZIP Code: {zipCode}</h3>
       <h3>Country: {country}</h3>
       {isLoggedIn && (
-        <Link to={`/order/${_id}`}>
+        <Link to={`/order/x/${_id}`}>
           <button>Edit Order</button>
         </Link>
       )}
